@@ -1,98 +1,172 @@
 <template>
-  <v-card
-    flat
-    tile
-  >
-    <v-toolbar
-      color="cyan"
-      dark
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <div id="navbar-full">
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-blue bg-blue">
+  <a class="navbar-brand" href="#">Abang</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <v-toolbar-title>Application</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    </v-toolbar>
-
-    <v-container
-      v-for="type in types"
-      :key="type"
-      class="grey lighten-4"
-      fluid
-    >
-      <v-subheader>{{ type }}</v-subheader>
-
-      <v-row>
-        <v-spacer></v-spacer>
-        <v-col
-          v-for="card in cards"
-          :key="card"
-          cols="12"
-          sm="6"
-          md="4"
-        >
-          <v-card>
-            <v-img
-              :src="`https://picsum.photos/200/300?image=${getImage()}`"
-              height="300px"
-            >
-              <span
-                class="headline white--text pl-4 pt-4"
-                v-text="card.title"
-              ></span>
-            </v-img>
-
-            <v-card-actions class="white justify-center">
-              <v-btn
-                v-for="(social, i) in socials"
-                :key="i"
-                :color="social.color"
-                class="white--text"
-                fab
-                icon
-                small
-              >
-                <v-icon>{{ social.icon }}</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+          </a>
+      </li> -->
+    </ul> 
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link" @click="login()">
+          <i class="fa fa-sign-in"> 
+          </i>
+          Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  @click="register()">
+          <i class="fa fa-registered" >
+          </i>
+         Register
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    </div>
 </template>
-<script>
-  export default {
-    data: () => ({
-      types: ['Places to Be', 'Places to See'],
-      cards: ['Good', 'Best', 'Finest'],
-      socials: [
-        {
-          icon: 'fab fa-facebook',
-          color: 'indigo',
-        },
-        {
-          icon: 'fab fa-linkedin',
-          color: 'cyan darken-1',
-        },
-        {
-          icon: 'fab fa-instagram',
-          color: 'red lighten-3',
-        },
-      ],
-    }),
+<style scoped>
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  font-size: 24px;
+}
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+}
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  top: 3px;
+  line-height: 12px;
+}
 
-    methods: {
-      getImage () {
-        const min = 550
-        const max = 560
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  top: -10px;
+}
 
-        return Math.floor(Math.random() * (max - min + 1)) + min
-      },
-    },
+@media (min-width: 576px) {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
   }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+ .bg-dark {
+    background-color:#1976d2 ;
+}
+}
+</style>
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  methods:{
+        login(){
+          this.$router.push("/login");
+        },
+        register:function(){
+          this.$router.push("/register");
+        }
+      }
+}
 </script>

@@ -1,7 +1,8 @@
 <template>
+<div class="body-conatiner">
+  <Header></Header>
   <section class="search-sec">
     <div class="container">
-      <Header style="margin-top:5%:"></Header>
       <form action="#" method="post" novalidate="novalidate">
         <div class="row">
           <div class="col-lg-12">
@@ -28,7 +29,7 @@
       </form>
     </div>
   </section>
-  <!-- <Header></Header> -->
+   </div>
 </template>
 <style scoped>
 .search-sec {
@@ -67,6 +68,7 @@
 .container {
   max-width: 1140px;
   margin-top: 270px;
+  border-color: #1976d2 3px solid;
 }
 option {
   font-family: Raleway-SemiBold;
@@ -77,8 +79,11 @@ option {
   flex: 0 0 25%;
   max-width: 25%;
   border: 2px solid;
-  border-color: #1976d2;
   /* border-radius: 10px;  */
+}
+.body-container{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThA6ijakIu-f-aORH7kGVPaeRSIH56F4N25uFm7AhxrBI2_h6R&s");
+  background-size: 100%;
 }
 </style>
 <script>
